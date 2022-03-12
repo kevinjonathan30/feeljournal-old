@@ -63,7 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let item = journalData[indexPath.row]
         if editingStyle == .delete {
             dataManager.deleteItem(item: item)
-            reloadTableView()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 }
