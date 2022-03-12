@@ -31,7 +31,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
                 return
             }
-            self?.createItem(title: text, body: "", feeling: "Happy", feelingIndex: 1.0)
+            let detectedFeel = nlpBrain.processSentimentAnalysis(input: text)
+            var detectedFeelString = ""
+            if detectedFeel == 0 {
+                detectedFeelString = "Neutral"
+            } else if detectedFeel < 0 {
+                detectedFeelString = "Sad"
+            } else {
+                detectedFeelString = "Happy"
+            }
+            self?.createItem(title: text, body: "", feeling: detectedFeelString, feelingIndex: detectedFeel)
         }))
         
         present(alert, animated: true)
@@ -56,32 +65,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(item)
     }
     
-    func tableView(_ tableView: UITableView,
-                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let item = journalData[indexPath.row]
-        
-        let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            let alert = UIAlertController(title: "Edit Item", message: "Edit your item", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: nil)
-            alert.textFields?.first?.text = item.title
-            alert.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { [weak self] _ in
-                guard let field = alert.textFields?.first, let newName = field.text, !newName.isEmpty else {
-                    return
-                }
-                self?.updateItem(item: item, newTitle: newName, newBody: "", newFeeling: "Happy", newFeelingIndex: 1.0)
-            }))
-            
-            self.present(alert, animated: true)
-        })
-        editAction.backgroundColor = .orange
-        
-        let deleteAction = UIContextualAction(style: .destructive, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        if editingStyle == .delete {
             self.deleteItem(item: item)
-        })
-        deleteAction.backgroundColor = .red
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        }
     }
     
     
