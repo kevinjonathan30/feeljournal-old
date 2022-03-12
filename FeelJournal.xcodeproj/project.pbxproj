@@ -17,6 +17,7 @@
 		5D1AB26A27DC283300B0CB53 /* JournalEntryItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB26827DC283300B0CB53 /* JournalEntryItem+CoreDataClass.swift */; };
 		5D1AB26B27DC283300B0CB53 /* JournalEntryItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB26927DC283300B0CB53 /* JournalEntryItem+CoreDataProperties.swift */; };
 		5D1AB26E27DC289900B0CB53 /* JournalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB26D27DC289900B0CB53 /* JournalData.swift */; };
+		5D1AB27027DC32C600B0CB53 /* NLPBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB26F27DC32C600B0CB53 /* NLPBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5D1AB26827DC283300B0CB53 /* JournalEntryItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntryItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5D1AB26927DC283300B0CB53 /* JournalEntryItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntryItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D1AB26D27DC289900B0CB53 /* JournalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalData.swift; sourceTree = "<group>"; };
+		5D1AB26F27DC32C600B0CB53 /* NLPBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLPBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				5D1AB26C27DC284F00B0CB53 /* JournalEntryItem */,
 				5D1AB25627DC270200B0CB53 /* FeelJournal.xcdatamodeld */,
 				5D1AB26D27DC289900B0CB53 /* JournalData.swift */,
+				5D1AB26F27DC32C600B0CB53 /* NLPBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				5D1AB24E27DC270200B0CB53 /* AppDelegate.swift in Sources */,
 				5D1AB25027DC270200B0CB53 /* SceneDelegate.swift in Sources */,
 				5D1AB25827DC270200B0CB53 /* FeelJournal.xcdatamodeld in Sources */,
+				5D1AB27027DC32C600B0CB53 /* NLPBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
