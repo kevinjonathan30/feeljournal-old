@@ -11,15 +11,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return table
-    }()
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "FeelJournal"
         view.addSubview(tableView)
         getAllItems()
         tableView.delegate = self
@@ -50,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let model = journalData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = model.title
+        cell.detailTextLabel?.text = "\(model.createdAt!)"
         
         return cell
     }
