@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol AddJournalDelegate {
+    func reloadTableViewFromAnotherVC()
+}
+
 class AddNewJournalViewController: UIViewController {
+    
+    var delegate: AddJournalDelegate?
 
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextView!
@@ -18,35 +24,34 @@ class AddNewJournalViewController: UIViewController {
         bodyTextField.text = "What's new? start typing here..."
     }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-        guard let field = bodyTextField, let text = field.text, !text.isEmpty else {
-            return
+        let trimmed = bodyTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed != "What's new? start typing here..." && trimmed != "" {
+            let detectedFeel = nlpBrain.processSentimentAnalysis(input: trimmed)
+            var detectedFeelString = ""
+            if detectedFeel == 0 {
+                detectedFeelString = "Neutral"
+            } else if detectedFeel < 0 {
+                detectedFeelString = "Sad"
+            } else {
+                detectedFeelString = "Happy"
+            }
+            var titleText = titleTextField.text!
+            if titleText == "" {
+                titleText = "Untitled Note"
+            }
+            dataManager.createItem(title: titleText, body: trimmed, feeling: detectedFeelString, feelingIndex: detectedFeel)
+            self.delegate?.reloadTableViewFromAnotherVC()
+            navigationController?.popViewController(animated: true)
         }
-        let detectedFeel = nlpBrain.processSentimentAnalysis(input: text)
-        var detectedFeelString = ""
-        if detectedFeel == 0 {
-            detectedFeelString = "Neutral"
-        } else if detectedFeel < 0 {
-            detectedFeelString = "Sad"
-        } else {
-            detectedFeelString = "Happy"
-        }
-        print(detectedFeelString)
-        var titleText = titleTextField.text
-        if titleText == "" {
-            titleText = "Untitled Note"
-        }
-        //self.createItem(title: text, body: "", feeling: detectedFeelString, feelingIndex: detectedFeel)
-        dismiss(animated: true, completion: nil)
     }
 }
 
 extension AddNewJournalViewController: UITextViewDelegate {
     func textViewDidBeginEditing (_ textView: UITextView) {
         if self.bodyTextField.textColor == .lightGray && self.bodyTextField.isFirstResponder {
-            print("Hello")
             self.bodyTextField.text = nil
             self.bodyTextField.textColor = .black
         }

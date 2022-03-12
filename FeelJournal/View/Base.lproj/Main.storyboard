@@ -27,14 +27,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H3a-pe-qD0">
-                                                    <rect key="frame" x="20" y="8" width="33" height="20.5"/>
+                                                    <rect key="frame" x="20" y="7.5" width="28.5" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCd-jS-CDj">
-                                                    <rect key="frame" x="20" y="28.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="20" y="27" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
@@ -58,33 +58,34 @@
                     <navigationItem key="navigationItem" title="FeelJournal" id="Jd3-Ee-Vv8">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="TIS-Qv-5N7">
                             <connections>
-                                <segue destination="O49-iT-EaO" kind="presentation" id="Arm-uI-sEH"/>
+                                <action selector="addNewEntryButton:" destination="BYZ-38-t0r" id="OfH-BF-th7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rxE-bT-nUU" id="gac-hZ-U2b"/>
+                        <segue destination="WdN-Tk-N3p" kind="show" identifier="toNewEntry" id="7Xe-gB-0od"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
         </scene>
-        <!--Add New Entry-->
+        <!--Add New Journal View Controller-->
         <scene sceneID="oQZ-85-uuf">
             <objects>
                 <viewController id="WdN-Tk-N3p" customClass="AddNewJournalViewController" customModule="FeelJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7l3-3i-6aV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Note" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e45-qC-Bra">
-                                <rect key="frame" x="25" y="56" width="364" height="38.5"/>
+                                <rect key="frame" x="25" y="88" width="364" height="38.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-Sc-FK8">
-                                <rect key="frame" x="20" y="94.5" width="374" height="747.5"/>
+                                <rect key="frame" x="20" y="126.5" width="374" height="735.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -103,7 +104,7 @@
                             <constraint firstItem="tbj-Sc-FK8" firstAttribute="top" secondItem="e45-qC-Bra" secondAttribute="bottom" id="kpK-jY-On7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Entry" id="EDF-D7-54c">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="EDF-D7-54c">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="0pi-kZ-UA6">
                             <connections>
                                 <action selector="cancelButton:" destination="WdN-Tk-N3p" id="cyN-De-lXC"/>
@@ -122,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyK-z0-fFU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2773.913043478261" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1832" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8v4-lx-mtA">
@@ -141,24 +142,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UaW-en-Xci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cib-Mh-01Q">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O49-iT-EaO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jAd-l6-mMG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="WdN-Tk-N3p" kind="relationship" relationship="rootViewController" id="Qfn-IH-I1M"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uFm-H1-KVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1863.7681159420292" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>

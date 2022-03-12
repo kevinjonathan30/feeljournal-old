@@ -7,43 +7,39 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        getAllItems()
+        dataManager.getAllItems()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
+        reloadTableView()
     }
     
-    @objc private func didTapAdd() {
-        let alert = UIAlertController(title: "New Item", message: "Enter new item", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(UIAlertAction(title: "Submit", style: .cancel, handler: { [weak self] _ in
-            guard let field = alert.textFields?.first, let text = field.text, !text.isEmpty else {
-                return
-            }
-            let detectedFeel = nlpBrain.processSentimentAnalysis(input: text)
-            var detectedFeelString = ""
-            if detectedFeel == 0 {
-                detectedFeelString = "Neutral"
-            } else if detectedFeel < 0 {
-                detectedFeelString = "Sad"
-            } else {
-                detectedFeelString = "Happy"
-            }
-            self?.createItem(title: text, body: "", feeling: detectedFeelString, feelingIndex: detectedFeel)
-        }))
-        
-        present(alert, animated: true)
+    @IBAction func addNewEntryButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toNewEntry", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewEntry" {
+            let secondVC = segue.destination as? AddNewJournalViewController
+            secondVC?.delegate = self
+        }
+    }
+    
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return journalData.count
     }
@@ -66,64 +62,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let item = journalData[indexPath.row]
         if editingStyle == .delete {
-            self.deleteItem(item: item)
+            dataManager.deleteItem(item: item)
+            reloadTableView()
         }
     }
-    
-    
-    //Core Data
-    
-    func getAllItems() {
-        do {
-            journalData = try context.fetch(JournalEntryItem.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-            //error
-        }
+}
+
+extension ViewController: AddJournalDelegate {
+    func reloadTableViewFromAnotherVC() {
+        reloadTableView()
     }
-    
-    func createItem(title: String, body: String, feeling: String, feelingIndex: Double) {
-        let newItem = JournalEntryItem(context: context)
-        newItem.title = title
-        newItem.createdAt = Date()
-        newItem.body = body
-        newItem.feeling = feeling
-        newItem.feelingIndex = feelingIndex
-        
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
-    
-    func deleteItem(item: JournalEntryItem) {
-        context.delete(item)
-        
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
-    
-    func updateItem(item: JournalEntryItem, newTitle: String, newBody: String, newFeeling: String, newFeelingIndex: Double) {
-        item.title = newTitle
-        item.body = newBody
-        item.feeling = newFeeling
-        item.feelingIndex = newFeelingIndex
-        do {
-            try context.save()
-            getAllItems()
-        } catch {
-            
-        }
-    }
-    
 }
 
