@@ -47,8 +47,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = journalData[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? JournalCell {
-//            cell.textLabel?.text = model.title
-//            cell.detailTextLabel?.text = "\(model.createdAt!.formatted(date: .abbreviated, time: .omitted))"
             cell.UpdateCellView(item: model)
             return cell
         } else {
@@ -65,8 +63,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let item = journalData[indexPath.row]
         if editingStyle == .delete {
-            dataManager.deleteItem(item: item)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let alert = UIAlertController(title: "Delete Note?", message: "Are you sure you want to delete this note?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] _ in
+                dataManager.deleteItem(item: item)
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            present(alert, animated: true)
         }
     }
 }
