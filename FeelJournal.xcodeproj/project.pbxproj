@@ -20,6 +20,7 @@
 		5D1AB27027DC32C600B0CB53 /* NLPBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB26F27DC32C600B0CB53 /* NLPBrain.swift */; };
 		5D1AB27227DC3A2A00B0CB53 /* AddNewJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27127DC3A2A00B0CB53 /* AddNewJournalViewController.swift */; };
 		5D1AB27427DCB82F00B0CB53 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27327DCB82F00B0CB53 /* DataManager.swift */; };
+		5D1AB27627DDE9EB00B0CB53 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5D1AB26F27DC32C600B0CB53 /* NLPBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLPBrain.swift; sourceTree = "<group>"; };
 		5D1AB27127DC3A2A00B0CB53 /* AddNewJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewJournalViewController.swift; sourceTree = "<group>"; };
 		5D1AB27327DCB82F00B0CB53 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				5D1AB25127DC270200B0CB53 /* ViewController.swift */,
 				5D1AB27127DC3A2A00B0CB53 /* AddNewJournalViewController.swift */,
+				5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				5D1AB26E27DC289900B0CB53 /* JournalData.swift in Sources */,
 				5D1AB26B27DC283300B0CB53 /* JournalEntryItem+CoreDataProperties.swift in Sources */,
 				5D1AB26A27DC283300B0CB53 /* JournalEntryItem+CoreDataClass.swift in Sources */,
+				5D1AB27627DDE9EB00B0CB53 /* JournalCell.swift in Sources */,
 				5D1AB24E27DC270200B0CB53 /* AppDelegate.swift in Sources */,
 				5D1AB25027DC270200B0CB53 /* SceneDelegate.swift in Sources */,
 				5D1AB25827DC270200B0CB53 /* FeelJournal.xcdatamodeld in Sources */,

@@ -14,21 +14,31 @@ protocol AddJournalDelegate {
 class AddNewJournalViewController: UIViewController {
     
     var delegate: AddJournalDelegate?
-
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyTextField.delegate = self
         bodyTextField.textColor = .lightGray
-        bodyTextField.text = "What's new? start typing here..."
+        bodyTextField.text = "Start writing here..."
     }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        let trimmed = bodyTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if (trimmed != "Start writing here..." && trimmed != "") || titleTextField.text != "" {
+            let alert = UIAlertController(title: "Discard Note?", message: "Are you sure you want to discard this note?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            present(alert, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         let trimmed = bodyTextField.text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmed != "What's new? start typing here..." && trimmed != "" {
+        if trimmed != "Start writing here..." && trimmed != "" {
             let detectedFeel = nlpBrain.processSentimentAnalysis(input: trimmed)
             var detectedFeelString = ""
             if detectedFeel == 0 {
@@ -60,7 +70,7 @@ extension AddNewJournalViewController: UITextViewDelegate {
     func textViewDidEndEditing (_ textView: UITextView) {
         if self.bodyTextField.text.isEmpty || self.bodyTextField.text == "" {
             self.bodyTextField.textColor = .lightGray
-            self.bodyTextField.text = "What's new? start typing here..."
+            self.bodyTextField.text = "Start writing here..."
         }
     }
 }

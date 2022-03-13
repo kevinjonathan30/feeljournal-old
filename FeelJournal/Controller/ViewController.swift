@@ -46,11 +46,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = journalData[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = model.title
-        cell.detailTextLabel?.text = "\(model.createdAt!)"
-        
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? JournalCell {
+//            cell.textLabel?.text = model.title
+//            cell.detailTextLabel?.text = "\(model.createdAt!.formatted(date: .abbreviated, time: .omitted))"
+            cell.UpdateCellView(item: model)
+            return cell
+        } else {
+            return JournalCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
