@@ -55,6 +55,14 @@ class AddNewJournalViewController: UIViewController {
             dataManager.createItem(title: titleText, body: trimmed, feeling: detectedFeelString, feelingIndex: detectedFeel)
             self.delegate?.reloadTableViewFromAnotherVC()
             navigationController?.popViewController(animated: true)
+        } else {
+            var titleText = titleTextField.text!
+            if titleText == "" {
+                titleText = "Untitled Note"
+            }
+            dataManager.createItem(title: titleText, body: "", feeling: "Neutral", feelingIndex: 0)
+            self.delegate?.reloadTableViewFromAnotherVC()
+            navigationController?.popViewController(animated: true)
         }
     }
 }
