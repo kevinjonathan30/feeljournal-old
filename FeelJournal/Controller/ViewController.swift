@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toNewEntry" {
             let secondVC = segue.destination as? AddNewJournalViewController
+            secondVC?.delegate = self
+        } else if segue.identifier == "toEditEntry" {
+            let secondVC = segue.destination as? EditJournalViewController
+            secondVC?.index = self.index
             secondVC?.delegate = self
         }
     }
@@ -56,8 +61,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let item = journalData[indexPath.row]
-        print(item)
+        index = indexPath.row
+        performSegue(withIdentifier: "toEditEntry", sender: self)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -74,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ViewController: AddJournalDelegate {
+extension ViewController: AddJournalDelegate, EditJournalDelegate {
     func reloadTableViewFromAnotherVC() {
         reloadTableView()
     }
