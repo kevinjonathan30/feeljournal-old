@@ -166,18 +166,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Note" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Pw-UJ-JuH">
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Note" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1m-t3-w2f">
                                 <rect key="frame" x="25" y="88" width="364" height="38.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5JW-Hq-E8F">
-                                <rect key="frame" x="20" y="126.5" width="374" height="749.5"/>
+                                <rect key="frame" x="20" y="126.5" width="374" height="735.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -188,12 +183,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h1m-t3-w2f" firstAttribute="leading" secondItem="O1c-Kd-GQR" secondAttribute="leading" constant="25" id="ErS-gU-Ouo"/>
+                            <constraint firstItem="O1c-Kd-GQR" firstAttribute="bottom" secondItem="5JW-Hq-E8F" secondAttribute="bottom" id="PsM-Si-hfI"/>
                             <constraint firstItem="O1c-Kd-GQR" firstAttribute="trailing" secondItem="5JW-Hq-E8F" secondAttribute="trailing" constant="20" id="iTy-AN-qkU"/>
                             <constraint firstItem="5JW-Hq-E8F" firstAttribute="leading" secondItem="O1c-Kd-GQR" secondAttribute="leading" constant="20" id="mWF-H7-O4z"/>
                             <constraint firstItem="O1c-Kd-GQR" firstAttribute="trailing" secondItem="h1m-t3-w2f" secondAttribute="trailing" constant="25" id="p03-Qx-NQc"/>
                             <constraint firstItem="5JW-Hq-E8F" firstAttribute="top" secondItem="h1m-t3-w2f" secondAttribute="bottom" id="vsz-Hk-9Kn"/>
                             <constraint firstItem="h1m-t3-w2f" firstAttribute="top" secondItem="O1c-Kd-GQR" secondAttribute="top" id="x20-DD-hTw"/>
-                            <constraint firstAttribute="bottom" secondItem="5JW-Hq-E8F" secondAttribute="bottom" constant="20" id="yI1-Kz-Ze6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Hqe-cz-Klc"/>
@@ -204,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlK-f6-cO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="805"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="804.91071428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8v4-lx-mtA">
