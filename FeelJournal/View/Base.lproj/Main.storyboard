@@ -171,14 +171,53 @@
                     <view key="view" contentMode="scaleToFill" id="7bq-4e-5c0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Overall Feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyR-mq-Anp">
+                                <rect key="frame" x="20" y="196" width="374" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-2a-CSN">
+                                <rect key="frame" x="20" y="213" width="374" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mCQ-Bp-TXb">
+                                <rect key="frame" x="20" y="145" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Last 7 Days"/>
+                                    <segment title="All Time"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onFilterChange:" destination="mWr-v6-Pof" eventType="valueChanged" id="5GI-WI-g3b"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vLQ-kV-mb4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mCQ-Bp-TXb" firstAttribute="top" secondItem="vLQ-kV-mb4" secondAttribute="top" constant="5" id="8Qx-EV-TCC"/>
+                            <constraint firstItem="CyR-mq-Anp" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="9XW-Ku-Yh0"/>
+                            <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="mCQ-Bp-TXb" secondAttribute="trailing" constant="20" id="E2H-Ed-YZk"/>
+                            <constraint firstItem="CyR-mq-Anp" firstAttribute="top" secondItem="mCQ-Bp-TXb" secondAttribute="bottom" constant="20" id="S9M-Nv-YM5"/>
+                            <constraint firstItem="uJY-2a-CSN" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="WNm-Qm-Af4"/>
+                            <constraint firstItem="mCQ-Bp-TXb" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="bLS-18-occ"/>
+                            <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="uJY-2a-CSN" secondAttribute="trailing" constant="20" id="pyp-pL-SNL"/>
+                            <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="CyR-mq-Anp" secondAttribute="trailing" constant="20" id="xIt-jR-DRH"/>
+                            <constraint firstItem="uJY-2a-CSN" firstAttribute="top" secondItem="CyR-mq-Anp" secondAttribute="bottom" id="yg3-TX-lme"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Analytics" id="O26-ee-Kja"/>
+                    <connections>
+                        <outlet property="feelingText" destination="uJY-2a-CSN" id="yQf-lV-AU7"/>
+                        <outlet property="filterControl" destination="mCQ-Bp-TXb" id="fiV-uZ-NyA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAo-Wc-pG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2800" y="836.38392857142856"/>
+            <point key="canvasLocation" x="2798.5507246376815" y="836.38392857142856"/>
         </scene>
         <!--Edit Journal View Controller-->
         <scene sceneID="jWs-ek-sew">
@@ -248,6 +287,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LEh-jd-41u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bt9-mV-zhi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>

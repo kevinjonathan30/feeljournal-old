@@ -8,3 +8,5 @@
 import Foundation
 
 public var journalData = [JournalEntryItem]()
+public var feelAverage7days: String = "No Data"
+public var feelAverage: String = "No Data"
