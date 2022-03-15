@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JournalViewController.swift
 //  FeelJournal
 //
 //  Created by Kevin Jonathan on 12/03/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JournalViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     var index: Int = 0
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return journalData.count
     }
@@ -79,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ViewController: AddJournalDelegate, EditJournalDelegate {
+extension JournalViewController: AddJournalDelegate, EditJournalDelegate {
     func reloadTableViewFromAnotherVC() {
         reloadTableView()
     }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D1AB24E27DC270200B0CB53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB24D27DC270200B0CB53 /* AppDelegate.swift */; };
 		5D1AB25027DC270200B0CB53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB24F27DC270200B0CB53 /* SceneDelegate.swift */; };
-		5D1AB25227DC270200B0CB53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB25127DC270200B0CB53 /* ViewController.swift */; };
+		5D1AB25227DC270200B0CB53 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB25127DC270200B0CB53 /* JournalViewController.swift */; };
 		5D1AB25527DC270200B0CB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1AB25327DC270200B0CB53 /* Main.storyboard */; };
 		5D1AB25827DC270200B0CB53 /* FeelJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB25627DC270200B0CB53 /* FeelJournal.xcdatamodeld */; };
 		5D1AB25A27DC270400B0CB53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1AB25927DC270400B0CB53 /* Assets.xcassets */; };
@@ -22,13 +22,14 @@
 		5D1AB27427DCB82F00B0CB53 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27327DCB82F00B0CB53 /* DataManager.swift */; };
 		5D1AB27627DDE9EB00B0CB53 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */; };
 		5D1AB27827DF924400B0CB53 /* EditJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27727DF924400B0CB53 /* EditJournalViewController.swift */; };
+		5D1AB27A27E05D9400B0CB53 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1AB27927E05D9400B0CB53 /* AnalyticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D1AB24A27DC270200B0CB53 /* FeelJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeelJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1AB24D27DC270200B0CB53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D1AB24F27DC270200B0CB53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5D1AB25127DC270200B0CB53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5D1AB25127DC270200B0CB53 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		5D1AB25427DC270200B0CB53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1AB25727DC270200B0CB53 /* FeelJournal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeelJournal.xcdatamodel; sourceTree = "<group>"; };
 		5D1AB25927DC270400B0CB53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		5D1AB27327DCB82F00B0CB53 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		5D1AB27727DF924400B0CB53 /* EditJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalViewController.swift; sourceTree = "<group>"; };
+		5D1AB27927E05D9400B0CB53 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +119,10 @@
 		5D1AB26727DC275300B0CB53 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5D1AB25127DC270200B0CB53 /* ViewController.swift */,
+				5D1AB25127DC270200B0CB53 /* JournalViewController.swift */,
 				5D1AB27127DC3A2A00B0CB53 /* AddNewJournalViewController.swift */,
 				5D1AB27727DF924400B0CB53 /* EditJournalViewController.swift */,
+				5D1AB27927E05D9400B0CB53 /* AnalyticsViewController.swift */,
 				5D1AB27527DDE9EB00B0CB53 /* JournalCell.swift */,
 			);
 			path = Controller;
@@ -205,12 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D1AB25227DC270200B0CB53 /* ViewController.swift in Sources */,
+				5D1AB25227DC270200B0CB53 /* JournalViewController.swift in Sources */,
 				5D1AB27427DCB82F00B0CB53 /* DataManager.swift in Sources */,
 				5D1AB26E27DC289900B0CB53 /* JournalData.swift in Sources */,
 				5D1AB26B27DC283300B0CB53 /* JournalEntryItem+CoreDataProperties.swift in Sources */,
 				5D1AB26A27DC283300B0CB53 /* JournalEntryItem+CoreDataClass.swift in Sources */,
 				5D1AB27627DDE9EB00B0CB53 /* JournalCell.swift in Sources */,
+				5D1AB27A27E05D9400B0CB53 /* AnalyticsViewController.swift in Sources */,
 				5D1AB24E27DC270200B0CB53 /* AppDelegate.swift in Sources */,
 				5D1AB25027DC270200B0CB53 /* SceneDelegate.swift in Sources */,
 				5D1AB25827DC270200B0CB53 /* FeelJournal.xcdatamodeld in Sources */,

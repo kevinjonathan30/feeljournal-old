@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KTg-8r-4eW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LEh-jd-41u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -11,13 +11,13 @@
         <!--FeelJournal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FeelJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="JournalViewController" customModule="FeelJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rxE-bT-nUU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="pu4-Ul-P1p" customClass="JournalCell" customModule="FeelJournal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
@@ -87,6 +87,7 @@
                             <constraint firstItem="rxE-bT-nUU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nva-TN-zIa"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="BMX-G4-9Mx"/>
                     <navigationItem key="navigationItem" title="FeelJournal" id="Jd3-Ee-Vv8">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="TIS-Qv-5N7">
                             <connections>
@@ -102,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
+            <point key="canvasLocation" x="2749.275362318841" y="97.767857142857139"/>
         </scene>
         <!--Add New Journal View Controller-->
         <scene sceneID="oQZ-85-uuf">
@@ -118,7 +119,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-Sc-FK8">
-                                <rect key="frame" x="20" y="126.5" width="374" height="735.5"/>
+                                <rect key="frame" x="20" y="126.5" width="374" height="686.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -156,7 +157,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyK-z0-fFU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="98"/>
+            <point key="canvasLocation" x="3652.1739130434785" y="97.767857142857139"/>
+        </scene>
+        <!--Analytics-->
+        <scene sceneID="Tb9-TG-9Cv">
+            <objects>
+                <viewController id="mWr-v6-Pof" customClass="AnalyticsViewController" customModule="FeelJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7bq-4e-5c0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vLQ-kV-mb4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Analytics" id="O26-ee-Kja"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rAo-Wc-pG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2800" y="836.38392857142856"/>
         </scene>
         <!--Edit Journal View Controller-->
         <scene sceneID="jWs-ek-sew">
@@ -172,7 +189,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5JW-Hq-E8F">
-                                <rect key="frame" x="20" y="126.5" width="374" height="735.5"/>
+                                <rect key="frame" x="20" y="126.5" width="374" height="686.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -199,12 +216,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlK-f6-cO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831.8840579710147" y="804.91071428571422"/>
+            <point key="canvasLocation" x="3650.7246376811595" y="827.67857142857144"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="8v4-lx-mtA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KTg-8r-4eW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="book.fill" catalog="system" id="yzK-F7-MXe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fwn-Rs-Yfz">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -212,15 +230,54 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aOv-fg-ENN"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8Vo-UL-Yud"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UaW-en-Xci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="97.767857142857139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Y3M-5F-Z0K">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LEh-jd-41u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bt9-mV-zhi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KTg-8r-4eW" kind="relationship" relationship="viewControllers" id="6lW-tM-r82"/>
+                        <segue destination="G0z-rE-6Te" kind="relationship" relationship="viewControllers" id="9DM-LI-sUX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shJ-LB-XA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979.71014492753636" y="97.767857142857139"/>
+        </scene>
+        <!--Analytics-->
+        <scene sceneID="EEY-VK-SMb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G0z-rE-6Te" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Analytics" image="chart.pie.fill" catalog="system" id="t6e-G3-biE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ccd-6E-diY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mWr-v6-Pof" kind="relationship" relationship="rootViewController" id="W2U-OR-Se7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8h-M7-bVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1889.8550724637682" y="835.71428571428567"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="chart.pie.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
