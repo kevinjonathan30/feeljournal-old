@@ -14,11 +14,9 @@ class JournalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
         dataManager.getAllItems()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.frame = view.bounds
         reloadTableView()
     }
     
