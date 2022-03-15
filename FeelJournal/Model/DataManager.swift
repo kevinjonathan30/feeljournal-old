@@ -15,7 +15,7 @@ struct DataManager {
         do {
             journalData = try context.fetch(JournalEntryItem.fetchRequest()).reversed()
         } catch {
-            //error
+            print("Cannot get all items")
         }
     }
 
@@ -31,7 +31,7 @@ struct DataManager {
             try context.save()
             getAllItems()
         } catch {
-
+            print("Cannot create item")
         }
     }
 
@@ -42,7 +42,7 @@ struct DataManager {
             try context.save()
             getAllItems()
         } catch {
-
+            print("Cannot delete item")
         }
     }
 
@@ -55,7 +55,7 @@ struct DataManager {
             try context.save()
             getAllItems()
         } catch {
-
+            print("Cannot update item")
         }
     }
 }

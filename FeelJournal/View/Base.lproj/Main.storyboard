@@ -87,9 +87,12 @@
                             <constraint firstItem="rxE-bT-nUU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nva-TN-zIa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="BMX-G4-9Mx"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="BMX-G4-9Mx">
+                        <color key="badgeColor" systemColor="systemIndigoColor"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="FeelJournal" id="Jd3-Ee-Vv8">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="TIS-Qv-5N7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="TIS-Qv-5N7">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
                                 <action selector="addNewEntryButton:" destination="BYZ-38-t0r" id="OfH-BF-th7"/>
                             </connections>
@@ -140,11 +143,13 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="EDF-D7-54c">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="olp-tH-bog">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
                                 <action selector="cancelButton:" destination="WdN-Tk-N3p" id="UQV-cg-MEw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" image="checkmark" catalog="system" id="nOk-Io-1lk">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
                                 <action selector="addButton:" destination="WdN-Tk-N3p" id="Eub-LR-K2i"/>
                             </connections>
@@ -218,11 +223,11 @@
             </objects>
             <point key="canvasLocation" x="3650.7246376811595" y="827.67857142857144"/>
         </scene>
-        <!--Home-->
+        <!--My Journal-->
         <scene sceneID="8v4-lx-mtA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KTg-8r-4eW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="book.fill" catalog="system" id="yzK-F7-MXe"/>
+                    <tabBarItem key="tabBarItem" title="My Journal" image="book.fill" catalog="system" id="yzK-F7-MXe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="fwn-Rs-Yfz">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -245,6 +250,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bt9-mV-zhi">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="KTg-8r-4eW" kind="relationship" relationship="viewControllers" id="6lW-tM-r82"/>
@@ -259,7 +265,9 @@
         <scene sceneID="EEY-VK-SMb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G0z-rE-6Te" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Analytics" image="chart.pie.fill" catalog="system" id="t6e-G3-biE"/>
+                    <tabBarItem key="tabBarItem" title="Analytics" image="chart.pie.fill" catalog="system" id="t6e-G3-biE">
+                        <color key="badgeColor" systemColor="systemIndigoColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ccd-6E-diY">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -279,12 +287,14 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="chart.pie.fill" catalog="system" width="128" height="121"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
