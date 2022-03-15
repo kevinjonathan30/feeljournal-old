@@ -1,0 +1,6 @@
+framework module Pods_FeelJournal {
+  umbrella header "Pods-FeelJournal-umbrella.h"
+
+  export *
+  module * { export * }
+}

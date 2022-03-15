@@ -194,6 +194,13 @@
                                     <action selector="onFilterChange:" destination="mWr-v6-Pof" eventType="valueChanged" id="5GI-WI-g3b"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chh-DN-Sfb">
+                                <rect key="frame" x="20" y="255" width="374" height="374"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Chh-DN-Sfb" secondAttribute="height" multiplier="16:16" id="bOh-wX-k1A"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vLQ-kV-mb4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -203,8 +210,11 @@
                             <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="mCQ-Bp-TXb" secondAttribute="trailing" constant="20" id="E2H-Ed-YZk"/>
                             <constraint firstItem="CyR-mq-Anp" firstAttribute="top" secondItem="mCQ-Bp-TXb" secondAttribute="bottom" constant="20" id="S9M-Nv-YM5"/>
                             <constraint firstItem="uJY-2a-CSN" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="WNm-Qm-Af4"/>
+                            <constraint firstItem="Chh-DN-Sfb" firstAttribute="top" secondItem="uJY-2a-CSN" secondAttribute="bottom" constant="5" id="Zxx-9e-cJj"/>
                             <constraint firstItem="mCQ-Bp-TXb" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="bLS-18-occ"/>
                             <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="uJY-2a-CSN" secondAttribute="trailing" constant="20" id="pyp-pL-SNL"/>
+                            <constraint firstItem="Chh-DN-Sfb" firstAttribute="leading" secondItem="vLQ-kV-mb4" secondAttribute="leading" constant="20" id="vAh-T7-k8r"/>
+                            <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="Chh-DN-Sfb" secondAttribute="trailing" constant="20" id="via-rV-8CC"/>
                             <constraint firstItem="vLQ-kV-mb4" firstAttribute="trailing" secondItem="CyR-mq-Anp" secondAttribute="trailing" constant="20" id="xIt-jR-DRH"/>
                             <constraint firstItem="uJY-2a-CSN" firstAttribute="top" secondItem="CyR-mq-Anp" secondAttribute="bottom" id="yg3-TX-lme"/>
                         </constraints>
@@ -213,6 +223,7 @@
                     <connections>
                         <outlet property="feelingText" destination="uJY-2a-CSN" id="yQf-lV-AU7"/>
                         <outlet property="filterControl" destination="mCQ-Bp-TXb" id="fiV-uZ-NyA"/>
+                        <outlet property="pieChartView" destination="Chh-DN-Sfb" id="TrA-d8-Hxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAo-Wc-pG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
