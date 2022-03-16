@@ -194,7 +194,7 @@
                                     <action selector="onFilterChange:" destination="mWr-v6-Pof" eventType="valueChanged" id="5GI-WI-g3b"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chh-DN-Sfb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chh-DN-Sfb" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="255" width="374" height="374"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -223,7 +223,7 @@
                     <connections>
                         <outlet property="feelingText" destination="uJY-2a-CSN" id="yQf-lV-AU7"/>
                         <outlet property="filterControl" destination="mCQ-Bp-TXb" id="fiV-uZ-NyA"/>
-                        <outlet property="pieChartView" destination="Chh-DN-Sfb" id="TrA-d8-Hxj"/>
+                        <outlet property="pieChartView" destination="Chh-DN-Sfb" id="cDi-0D-BSu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAo-Wc-pG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

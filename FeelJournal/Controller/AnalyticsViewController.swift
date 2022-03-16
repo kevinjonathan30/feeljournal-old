@@ -10,8 +10,7 @@ import UIKit
 
 class AnalyticsViewController: UIViewController, ChartViewDelegate {
     
-    @IBOutlet var pieChartView: UIView!
-    var pieChart = PieChartView()
+    @IBOutlet var pieChartView: PieChartView!
 
     @IBOutlet var filterControl: UISegmentedControl!
     @IBOutlet var feelingText: UILabel!
@@ -22,12 +21,12 @@ class AnalyticsViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        pieChart.delegate = self
+        pieChartView.delegate = self
         generateChart(requestedData: "7days")
     }
     
     func generateChart(requestedData: String) {
-        pieChart.frame = CGRect(x: 0, y: 0, width: pieChartView.frame.width, height: pieChartView.frame.width)
+//        pieChart.frame = CGRect(x: 0, y: 0, width: pieChartView.frame.width, height: pieChartView.frame.width)
         
         var entries = [ChartDataEntry]()
         
@@ -67,8 +66,7 @@ class AnalyticsViewController: UIViewController, ChartViewDelegate {
         let set = PieChartDataSet(entries: entries)
         set.colors = ChartColorTemplates.colorful()
         let data = PieChartData(dataSet: set)
-        pieChart.data = data
-        pieChartView.addSubview(pieChart)
+        pieChartView.data = data
     }
     
     @IBAction func onFilterChange(_ sender: UISegmentedControl) {
