@@ -44,6 +44,11 @@ class JournalViewController: UIViewController {
 
 extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if journalData.count == 0 {
+            self.tableView.setEmptyMessage("No Journal Added")
+        } else {
+            self.tableView.restore()
+        }
         return journalData.count
     }
     
@@ -80,6 +85,25 @@ extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
 extension JournalViewController: AddJournalDelegate, EditJournalDelegate {
     func reloadTableViewFromAnotherVC() {
         reloadTableView()
+    }
+}
+
+extension UITableView {
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+        messageLabel.sizeToFit()
+        
+        self.backgroundView = messageLabel
+        self.separatorStyle = .none
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
     }
 }
 
