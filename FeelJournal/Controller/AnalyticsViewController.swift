@@ -23,13 +23,13 @@ class AnalyticsViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feelingText.text = feelAverage7days
         pieChartView.chartDescription.text = ""
         pieChartView.drawHoleEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        feelingText.text = feelAverage7days
         pieChartView.delegate = self
         generateChart(requestedData: "7days")
     }
