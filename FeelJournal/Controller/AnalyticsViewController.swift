@@ -8,7 +8,7 @@
 import Charts
 import UIKit
 
-class AnalyticsViewController: UIViewController, ChartViewDelegate {
+class AnalyticsViewController: UIViewController {
     
     @IBOutlet var pieChartView: PieChartView!
 
@@ -34,6 +34,18 @@ class AnalyticsViewController: UIViewController, ChartViewDelegate {
         generateChart(requestedData: "7days")
     }
     
+    @IBAction func onFilterChange(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            feelingText.text = feelAverage7days
+            generateChart(requestedData: "7days")
+        } else {
+            feelingText.text = feelAverage
+            generateChart(requestedData: "alltime")
+        }
+    }
+}
+
+extension AnalyticsViewController: ChartViewDelegate {
     func generateChart(requestedData: String) {
         var happy: Int = 0, neutral: Int = 0, sad: Int = 0
         
@@ -82,16 +94,6 @@ class AnalyticsViewController: UIViewController, ChartViewDelegate {
         chartDataSet.colors = colors
         
         pieChartView.data = chartData
-    }
-    
-    @IBAction func onFilterChange(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            feelingText.text = feelAverage7days
-            generateChart(requestedData: "7days")
-        } else {
-            feelingText.text = feelAverage
-            generateChart(requestedData: "alltime")
-        }
     }
 }
 

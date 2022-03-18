@@ -20,6 +20,14 @@ struct DataManager {
         }
     }
     
+    func getItemsBySearch(text: String) {
+        do {
+            journalData = try context.fetch(JournalEntryItem.fetchRequest()).reversed().filter { $0.title!.lowercased().contains(text.lowercased()) ||  $0.body!.lowercased().contains(text.lowercased())}
+        } catch {
+            print("Cannot get items by search")
+        }
+    }
+    
     func getAnalytics() {
         var sum: Double = 0
         var sum7days: Double = 0

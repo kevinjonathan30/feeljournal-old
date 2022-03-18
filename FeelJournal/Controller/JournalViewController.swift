@@ -8,15 +8,16 @@
 import UIKit
 
 class JournalViewController: UIViewController {
-    
     @IBOutlet var tableView: UITableView!
+    let searchController = UISearchController()
     var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.getAllItems()
-        tableView.delegate = self
-        tableView.dataSource = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .systemIndigo
+        navigationItem.searchController = searchController
         reloadTableView()
     }
     
@@ -44,8 +45,10 @@ class JournalViewController: UIViewController {
 
 extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if journalData.count == 0 {
+        if journalData.count == 0 && searchController.searchBar.text == "" {
             self.tableView.setEmptyMessage("No Journal Added")
+        } else if journalData.count == 0 && searchController.searchBar.text != "" {
+            self.tableView.setEmptyMessage("No Results")
         } else {
             self.tableView.restore()
         }
@@ -74,7 +77,12 @@ extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
             let alert = UIAlertController(title: "Delete Note?", message: "Are you sure you want to delete this note?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] _ in
                 dataManager.deleteItem(item: item)
-                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                if self?.searchController.searchBar.text == "" {
+                    self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                } else {
+                    dataManager.getItemsBySearch(text: (self?.searchController.searchBar.text!)!)
+                    self?.reloadTableView()
+                }
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             present(alert, animated: true)
@@ -84,6 +92,18 @@ extension JournalViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension JournalViewController: AddJournalDelegate, EditJournalDelegate {
     func reloadTableViewFromAnotherVC() {
+        reloadTableView()
+    }
+}
+
+extension JournalViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        dataManager.getAllItems()
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            reloadTableView()
+            return
+        }
+        dataManager.getItemsBySearch(text: text)
         reloadTableView()
     }
 }
