@@ -71,7 +71,7 @@ extension AddNewJournalViewController: UITextViewDelegate {
     func textViewDidBeginEditing (_ textView: UITextView) {
         if self.bodyTextField.textColor == .lightGray && self.bodyTextField.isFirstResponder {
             self.bodyTextField.text = nil
-            self.bodyTextField.textColor = .black
+            self.bodyTextField.textColor = .label
         }
     }
     
