@@ -20,6 +20,7 @@ class EditJournalViewController: UIViewController {
     @IBOutlet var bodyTextField: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = .systemIndigo
         titleTextField.text = journalData[index].title
         bodyTextField.text = journalData[index].body
         bodyTextField.delegate = self
