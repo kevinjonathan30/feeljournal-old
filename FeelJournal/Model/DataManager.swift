@@ -29,28 +29,15 @@ struct DataManager {
     }
     
     func getAnalytics() {
-        var sum: Double = 0
-        var sum7days: Double = 0
-        var count7days: Int = 0
-        for journal in journalData {
-            sum += journal.feelingIndex
-            if (Date() - journal.createdAt!).day! <= 7 {
-                sum7days += journal.feelingIndex
-                count7days += 1
-            }
-        }
-        if journalData.count > 0 {
-            let average: Double = sum / Double(journalData.count)
-            feelAverage = average == 0 ? "Neutral" : average < 0 ? "Sad" : "Happy"
-        } else {
-            feelAverage = "No Data"
-        }
-        if count7days > 0 {
-            let average: Double = sum7days / Double(count7days)
-            feelAverage7days = average == 0 ? "Neutral" : average < 0 ? "Sad" : "Happy"
-        } else {
-            feelAverage7days = "No Data"
-        }
+        let average: Double = journalData.map {$0.feelingIndex}.average
+        let average7days: Double = journalData.filter { journal in
+            (Date() - journal.createdAt!).day! <= 7
+        }.map {$0.feelingIndex}.average
+        
+        feelAverage = journalData.count > 0 ? average == 0 ? "Neutral" : average < 0 ? "Sad" : "Happy" : "No Data"
+        feelAverage7days = journalData.filter { journal in
+            (Date() - journal.createdAt!).day! <= 7
+        }.count > 0 ? average7days == 0 ? "Neutral" : average7days < 0 ? "Sad" : "Happy" : "No Data"
     }
 
     func createItem(title: String, body: String, feeling: String, feelingIndex: Double) {
@@ -103,6 +90,12 @@ extension Date {
         let second = Calendar.current.dateComponents([.second], from: previous, to: recent).second
 
         return (month: month, day: day, hour: hour, minute: minute, second: second)
+    }
+}
+
+extension Array where Element: BinaryFloatingPoint {
+    var average: Double {
+        return self.isEmpty ? 0.0 : Double(self.reduce(0, +)) / Double(self.count)
     }
 }
 
